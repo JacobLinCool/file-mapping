@@ -36,11 +36,11 @@ data.collection.document.something = "something";
 import { mapping } from "file-mapping";
 
 const data = mapping("./data.json", {}, (data, changes) => {
-  console.log(`write ${changes.length} changes into disk`, data);
+    console.log(`write ${changes.length} changes into disk`, data);
 });
 
 for (let i = 0; i < 1000; i++) {
-  data[`key-${i}`] = `value-${i}`;
+    data[`key-${i}`] = `value-${i}`;
 }
 ```
 
@@ -55,10 +55,10 @@ const mapping = new Mapping("./data.json", {});
 const data = mapping.data;
 
 mapping.on("write", (data, changes) => {
-  console.log(`write ${changes.length} changes into disk`, data);
+    console.log(`write ${changes.length} changes into disk`, data);
 });
 
 for (let i = 0; i < 1000; i++) {
-  data[`key-${i}`] = `value-${i}`;
+    data[`key-${i}`] = `value-${i}`;
 }
 ```
