@@ -1,5 +1,7 @@
 # File Mapping
 
+[![NPM](https://img.shields.io/npm/v/file-mapping.svg?style=flat)](https://www.npmjs.com/package/file-mapping)
+
 A library that maps JSON file and in-memory data, and using lazy-writing strategy to reduce disk I/O.
 
 ## Usage
@@ -62,3 +64,9 @@ for (let i = 0; i < 1000; i++) {
     data[`key-${i}`] = `value-${i}`;
 }
 ```
+
+## Links
+
+- NPM Package: <https://www.npmjs.com/package/file-mapping>
+- Documentation: <https://jacoblincool.github.io/file-mapping/>
+- GitHub Repository: <https://github.com/JacobLinCool/file-mapping/>
