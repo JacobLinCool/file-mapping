@@ -29,12 +29,15 @@ export function mapping<T>(
     let writing = Promise.resolve(true);
     let changes = 0;
 
+    const proxied = new Set();
     const proxy = {
         get: (target: Record<string, unknown>, key: string) => {
             const prop = target[key];
 
-            if (typeof prop === "object" && prop !== null) {
+            if (typeof prop === "object" && prop !== null && !proxied.has(target[key])) {
+                console.log(`create proxy for`, target[key]);
                 target[key] = new Proxy(prop, proxy);
+                proxied.add(target[key]);
             }
 
             return target[key];

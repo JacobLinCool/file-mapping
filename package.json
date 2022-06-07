@@ -1,6 +1,6 @@
 {
     "name": "file-mapping",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "A library that maps JSON file and in-memory data, and using lazy-writing strategy to reduce disk I/O.",
     "author": "JacobLinCool <jacoblincool@gmail.com> (https://github.com/JacobLinCool)",
     "license": "MIT",
@@ -20,7 +20,7 @@
         "dev": "tsup --watch",
         "build": "npm run format && tsup",
         "docs": "typedoc ./src/",
-        "format": "prettier --write '**/*.{js,ts,jsx,tsx,json,yml,yaml,md,html}' --ignore-path .gitignore",
+        "format": "prettier --write '**/*.{js,ts,jsx,tsx,json,yml,yaml,html}' --ignore-path .gitignore",
         "lint": "eslint ."
     },
     "devDependencies": {
