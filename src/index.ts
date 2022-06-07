@@ -35,7 +35,6 @@ export function mapping<T>(
             const prop = target[key];
 
             if (typeof prop === "object" && prop !== null && !proxied.has(target[key])) {
-                console.log(`create proxy for`, target[key]);
                 target[key] = new Proxy(prop, proxy);
                 proxied.add(target[key]);
             }

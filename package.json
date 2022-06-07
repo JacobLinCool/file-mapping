@@ -1,6 +1,6 @@
 {
     "name": "file-mapping",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "A library that maps JSON file and in-memory data, and using lazy-writing strategy to reduce disk I/O.",
     "author": "JacobLinCool <jacoblincool@gmail.com> (https://github.com/JacobLinCool)",
     "license": "MIT",
