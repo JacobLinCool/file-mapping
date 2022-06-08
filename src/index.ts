@@ -54,12 +54,13 @@ export function mapping<T>(
 
                 writing = new Promise((resolve) => {
                     fs.writeFileSync(file, JSON.stringify(data), "utf8");
-                    changes = 0;
-                    resolve(true);
 
                     if (write_cb) {
                         write_cb(data, changes);
                     }
+
+                    changes = 0;
+                    resolve(true);
                 });
             })();
 
