@@ -16,7 +16,7 @@ const data = mapping("./data.json", {});
 data.name = "Jacob";
 data.age = 19;
 
-// Then, the file should be write automatically and only once.
+// Then, the file should be written automatically and only once.
 ```
 
 ### Nested Data
@@ -38,7 +38,7 @@ data.collection.document.something = "something";
 import { mapping } from "file-mapping";
 
 const data = mapping("./data.json", {}, (data, changes) => {
-    console.log(`write ${changes.length} changes into disk`, data);
+    console.log(`write ${changes} changes into disk`, data);
 });
 
 for (let i = 0; i < 1000; i++) {
@@ -57,7 +57,7 @@ const mapping = new Mapping("./data.json", {});
 const data = mapping.data;
 
 mapping.on("write", (data, changes) => {
-    console.log(`write ${changes.length} changes into disk`, data);
+    console.log(`write ${changes} changes into disk`, data);
 });
 
 for (let i = 0; i < 1000; i++) {
