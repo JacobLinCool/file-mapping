@@ -11,7 +11,7 @@ specifiers:
   prettier: ^2.6.2
   ts-jest: ^27.1.5
   tsup: ^5.12.9
-  typedoc: 0.23.2
+  typedoc: 0.23.10
   typescript: ^4.7.3
 
 devDependencies:
@@ -25,7 +25,7 @@ devDependencies:
   prettier: 2.6.2
   ts-jest: 27.1.5_zydwki6ztrgm452or5cw6tjo5q
   tsup: 5.12.9_typescript@4.7.3
-  typedoc: 0.23.2_typescript@4.7.3
+  typedoc: 0.23.10_typescript@4.7.3
   typescript: 4.7.3
 
 packages:
@@ -2828,8 +2828,8 @@ packages:
       tmpl: 1.0.5
     dev: true
 
-  /marked/4.0.16:
-    resolution: {integrity: sha512-wahonIQ5Jnyatt2fn8KqF/nIqZM8mh3oRu2+l5EANGMhu6RFjiSG52QNE2eWzFMI94HqYSgN184NurgNG6CztA==}
+  /marked/4.0.18:
+    resolution: {integrity: sha512-wbLDJ7Zh0sqA0Vdg6aqlbT+yPxqLblpAZh1mK2+AO2twQkPywvvqQNfEPVwSSRjZ7dZcdeVBIAgiO7MMp3Dszw==}
     engines: {node: '>= 12'}
     hasBin: true
     dev: true
@@ -3577,15 +3577,15 @@ packages:
       is-typedarray: 1.0.0
     dev: true
 
-  /typedoc/0.23.2_typescript@4.7.3:
-    resolution: {integrity: sha512-THpC4vtb3wu1yck6YHzEc4ck6W4lScf8TD0Rg7XAetDih8BzP+ErYO0/6DtdzYcZyKkDwEoujkMeWW7CffCbrQ==}
+  /typedoc/0.23.10_typescript@4.7.3:
+    resolution: {integrity: sha512-03EUiu/ZuScUBMnY6p0lY+HTH8SwhzvRE3gImoemdPDWXPXlks83UGTx++lyquWeB1MTwm9D9Ca8RIjkK3AFfQ==}
     engines: {node: '>= 14.14'}
     hasBin: true
     peerDependencies:
       typescript: 4.6.x || 4.7.x
     dependencies:
       lunr: 2.3.9
-      marked: 4.0.16
+      marked: 4.0.18
       minimatch: 5.1.0
       shiki: 0.10.1
       typescript: 4.7.3
