@@ -1,10 +1,10 @@
 import fs from "node:fs";
-import { Mapping } from "../";
+import { Mapping, Collection } from "../";
 
 describe("test mapping", () => {
     test("simple object usage", async () => {
         const file1 = "test1.json";
-        const mapping = new Mapping<{ a: number; b: number }>(file1, { a: -1, b: -1 });
+        const mapping = new Mapping(file1, { a: -1, b: -1 });
         const data = mapping.data;
 
         for (let i = 0; i < 1000; i++) {
@@ -91,5 +91,46 @@ describe("test mapping", () => {
         expect(JSON.stringify(data)).toBe(fs.readFileSync(file3, "utf8"));
 
         fs.rmSync(file3);
+    });
+});
+
+describe("test collection", () => {
+    test("collection", async () => {
+        const dir = "collection";
+        fs.rmSync(dir, { recursive: true, force: true });
+
+        const accounts = new Collection(dir, { balance: 0 });
+        const jacob = accounts.data("jacob");
+        const howard = accounts.data("howard");
+        const takala = accounts.data("takala");
+
+        expect(jacob.balance).toBe(0);
+        expect(howard.balance).toBe(0);
+        expect(takala.balance).toBe(0);
+
+        jacob.balance = 100;
+        howard.balance = 200;
+        takala.balance = 300;
+
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        expect(accounts.get("jacob").written).toBe(1);
+        expect(accounts.get("howard").written).toBe(1);
+        expect(accounts.get("takala").written).toBe(1);
+
+        expect(JSON.parse(fs.readFileSync(accounts.get("jacob").file, "utf8")).balance).toBe(
+            jacob.balance,
+        );
+        expect(JSON.parse(fs.readFileSync(accounts.get("howard").file, "utf8")).balance).toBe(
+            howard.balance,
+        );
+        expect(JSON.parse(fs.readFileSync(accounts.get("takala").file, "utf8")).balance).toBe(
+            takala.balance,
+        );
+
+        expect(accounts.delete("jacob")).toBe(true);
+        expect(accounts.delete("jacob")).toBe(false);
+
+        fs.rmSync(dir, { recursive: true, force: true });
     });
 });
