@@ -28,7 +28,9 @@ export function mapping<T>(
 ): T {
     const data = fs.existsSync(file)
         ? JSON.parse(fs.readFileSync(file, "utf8"))
-        : JSON.parse(stringify(fallback)) || Object.create(null);
+        : typeof fallback === "object"
+        ? JSON.parse(stringify(fallback))
+        : Object.create(null);
     let writing = Promise.resolve(true);
     let changes = 0;
 
